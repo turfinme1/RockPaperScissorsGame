@@ -9,3 +9,5 @@ Player enters one of the following options:
 * `paper` or `p`
 * `scissors` or `s`\
 The computer chooses random option, then reveals the winner.
+## Live Demo
+[<img alt="Run" src="https://user-images.githubusercontent.com/66351538/216043152-1ee5e53c-7bcd-4208-a78d-00791e1e850a.png" />](https://replit.com/@turfinme1/RockPaperScissors-Game#Main.cs)
