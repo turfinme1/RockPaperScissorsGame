@@ -50,31 +50,29 @@ while (true)
         default:
             break;
     }
-    if ((playerMove == Rock && computerMove == Scissors) ||
-        (playerMove == Paper && computerMove == Rock) ||
-        (playerMove == Scissors && computerMove == Paper))
+    switch ((playerMove, computerMove))
     {
-        playerWins++;
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.Write($"The CPU chose {computerMove}. ");
-        Console.WriteLine($"Your {playerMove} beats {computerMove}.\nPlayer score: {playerWins}, CPU score: {computerWins}");
-    }
-    else if ((playerMove == Rock && computerMove == Paper) ||
-             (playerMove == Paper && computerMove == Scissors) ||
-             (playerMove == Scissors && computerMove == Rock))
-    {
-        computerWins++;
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.Write($"The CPU chose {computerMove}. ");
-        Console.WriteLine($"Your {playerMove} loses against {computerMove}.\nPlayer score: {playerWins}, CPU score: {computerWins}");
-    }
-    else if ((playerMove == Rock && computerMove == Rock) ||
-             (playerMove == Paper && computerMove == Paper) ||
-             (playerMove == Scissors && computerMove == Scissors))
-    {
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.Write($"The CPU chose {computerMove}. ");
-        Console.WriteLine($"You and the CPU chose {playerMove}. It's a draw.\nPlayer score: {playerWins}, CPU score: {computerWins}");
+        case (Rock, Scissors):
+        case (Paper,Rock):
+        case (Scissors, Paper):
+            playerWins++;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write($"The CPU chose {computerMove}. ");
+            Console.WriteLine($"Your {playerMove} beats {computerMove}.\nPlayer score: {playerWins}, CPU score: {computerWins}");
+            break;
+        case (Rock, Paper):
+        case (Paper, Scissors):
+        case (Scissors, Rock):
+            computerWins++;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write($"The CPU chose {computerMove}. ");
+            Console.WriteLine($"Your {playerMove} loses against {computerMove}.\nPlayer score: {playerWins}, CPU score: {computerWins}");
+            break;
+        default:
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write($"The CPU chose {computerMove}. ");
+            Console.WriteLine($"It's a draw.\nPlayer score: {playerWins}, CPU score: {computerWins}");
+            break;
     }
     Console.ResetColor();
 }
